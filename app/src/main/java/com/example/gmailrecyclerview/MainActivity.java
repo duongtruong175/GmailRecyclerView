@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 List<EmailModel> searchList = new ArrayList<>();
-                if(s.length() <= 2) {
+                if(s.length() <= 2) { //duoi 3 ki tu thi khong tim kiem
                     adapter = new EmailAdapter(emails);
                     recyclerView.setAdapter(adapter);
                 }
@@ -87,18 +87,18 @@ public class MainActivity extends AppCompatActivity {
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                state = !state;
+                state = !state; //doi lai trang thai
 
-                if( !state ) {
+                if( !state ) { //neu la xen list full
                     btnFavorite.setBackgroundColor(Color.parseColor("#C0C0C0"));
                     adapter = new EmailAdapter(emails);
                     recyclerView.setAdapter(adapter);
                 }
-                else {
-                    btnFavorite.setBackgroundColor(Color.parseColor("#FFFF00"));
+                else { //xem list favorite
+                    btnFavorite.setBackgroundColor(Color.parseColor("#FF0000"));
                     List<EmailModel> favoriteList = new ArrayList<>();
                     for(int i = 0 ; i < emails.size() ; i++) {
-                        if( emails.get(i).isFavorite() ) { //neu la favorite
+                        if( emails.get(i).isFavorite() ) { //neu la favorite thi them vao list
                             favoriteList.add(emails.get(i));
                         }
                     }
